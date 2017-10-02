@@ -1,22 +1,28 @@
 <template>
-<Row :span="20">
-  <Col :span="3"></Col>
+<nav class="pagination" role="navigation" aria-label="pagination">
   <Col :span="14" class="align-center">
-    <div class="pagination" v-if="paginatorType === 0">
-      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + 'page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-    </div>
-    <div class="pagination" v-if="paginatorType === 1">
-      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + keyword + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-    </div>
-    <div class="pagination" v-if="paginatorType === 2">
-      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + catKey + '/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-    </div>
-    <div class="pagination" v-if="paginatorType === 3">
-      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + searchKey + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-    </div>
+    <ul class="pagination-list" v-if="paginatorType === 0">
+      <li v-for="n in paginationRange">
+        <a :class="activePage(n)" :href="baseUrl + 'page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+      </li>
+    </ul>
+    <ul class="pagination-list" v-if="paginatorType === 1">
+      <li v-for="n in paginationRange">
+        <a :class="activePage(n)" :href="baseUrl + keyword + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+      </li>
+    </ul>
+    <ul class="pagination-list" v-if="paginatorType === 2">
+      <li v-for="n in paginationRange">
+        <a :class="activePage(n)" :href="baseUrl + catKey + '/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+      </li>
+    </ul>
+    <ul class="pagination-list" v-if="paginatorType === 3">
+      <li v-for="n in paginationRange">
+        <a :class="activePage(n)" :href="baseUrl + searchKey + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+      </li>
+    </ul>
   </Col>
-  <Col :span="3"></Col>
-</Row>
+</nav>
 </template>
 
 <script>
@@ -34,7 +40,7 @@ export default {
   },
   methods: {
     activePage (pageNum) {
-      return this.currentPage === pageNum ? 'page-item active' : 'page-item'
+      return this.currentPage === pageNum ? 'pagination-link is-current' : 'pagination-link'
     },
     pageChanged (pageNum) {
       this.$emit('page-changed', pageNum)
@@ -92,23 +98,4 @@ export default {
 </script>
 
 <style>
-.pagination {
-  display: block;
-}
-
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-.pagination a.active {
-  background-color: #de47ac;
-  color: #fff;
-}
-
-.align-center {
-  text-align: center;
-}
 </style>
