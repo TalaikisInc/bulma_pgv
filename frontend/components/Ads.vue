@@ -1,5 +1,5 @@
 <template>
-  <Row :span="20">
+  <!-- <Row :span="20">
     <Col :span="20">
       <adsense
         :ad-client="adClient"
@@ -8,7 +8,7 @@
         ad-format="auto">
       </adsense>
     </Col>
-  </Row>
+  </Row>-->
 </template>
 
 <script>

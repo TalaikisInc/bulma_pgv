@@ -24,17 +24,15 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' },
-      { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' }
+      { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css' }
     ]
   },
   plugins: [
     '~plugins/filters.js',
-    '~plugins/axios.js',
-    '~plugins/iview.js'
+    '~plugins/axios.js'
   ],
   css: [
-    '@/assets/css/index.less',
     '@/assets/css/main.css'
   ],
   modules: [
