@@ -1,14 +1,14 @@
 <template>
-<div clas="row align-items-center">
-  <div class="row-sm-3"></div>
-  <div class="row-sm-6 text-center">
-    <div>
-      <h1>404</h1>
-      <p>Page not found.</p>
-      <a :href="baseUrl">Back to Home</a>
+<div class="container">
+  <div class="columns">
+    <div class="column is-two-third">
+      <h1 class="title is-1">404</h1>
+      <div class="content">
+        <p>Page not found.</p>
+        <a :href="baseUrl">Back to Home</a>
+      </div>
     </div>
   </div>
-  <div class="row-sm-3"></div>
 </div>
 </template>
 

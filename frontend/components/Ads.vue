@@ -1,14 +1,14 @@
 <template>
-  <!-- <Row :span="20">
-    <Col :span="20">
+  <div class="columns">
+    <div class="column">
       <adsense
         :ad-client="adClient"
         :ad-slot="adSlot"
         ad-style="display: block"
         ad-format="auto">
       </adsense>
-    </Col>
-  </Row>-->
+    </div>
+  </div>
 </template>
 
 <script>

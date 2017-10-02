@@ -1,22 +1,22 @@
 <template>
     <footer>
-        <Row type="flex">
-            <Col :span="3"></Col>
-            <Col :span="6" class="align-center">
-                <div>
+        <div class="columns">
+            <div class="column auto"></div>
+            <div class="column is-half is-offset-one-quarter">
+                <div class="content">
                     <a :href="baseUrl"><img src="~/assets/logo/logo.png" width="50" height="50" :alt="siteName"></a>
                 </div>
-                <div>
+                <div class="content">
                     <p><a :href="'https://twitter.com/' + twHandle"><i class="fa fa-twitter"></i></a>&nbsp;
                     <a :href="'https://www.facebook.com/' + fbHandle"><i class="fa fa-facebook"></i></a></p>
                     <address>
-                        <p>&copy; 2017 <a :href="baseUrl">{{ siteName }}</a> | 
+                        <p class="title is-6">&copy; 2017 <a :href="baseUrl">{{ siteName }}</a> | 
                         Developed by <a href="https://talaikis.com">Talaikis Inc.</a></p>
                     </address>					
                 </div>
-            </Col>
-            <Col :span="3"></Col>
-        </Row>
+            </div>
+            <div class="column auto"></div>
+        </div>
     </footer>
 </template>
 

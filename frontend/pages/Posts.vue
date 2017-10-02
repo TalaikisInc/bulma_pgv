@@ -1,7 +1,6 @@
 <template>
-<div class="container is-light">
+<div class="container">
   <div class="columns">
-    
     <div class="column is-two-third">
       <ad-component></ad-component>
       <div class="columns" v-for="(chunk, index) in chunkPosts" :key="'p-' + index">
@@ -31,7 +30,6 @@
       <paginator-component v-once :totalPages="calcPages" :paginatorType="paginatorType" value="" :currentPage="page" :itemsPerPage="itemsPerPage" :totalItems="posts[0].total_posts">
       </paginator-component>
     </div>
-    
   </div>
 </div>
 </template>

@@ -1,45 +1,31 @@
 <template>
-<div>
-  <ad-component></ad-component>
-  <Row :span="20">
-    <Col :span="3"></Col>
-    <Col :span="14">
-      <h1>{{ post.Title }}</h1>
-    </Col>
-    <Col :span="3"></Col>
-  </Row>
-  <Row :span="20">
-    <Col :span="3"></Col>
-    <Col :span="14">
+<div class="container">
+  <div class="columns">
+    <div class="column is-two-third">
+      <ad-component></ad-component>
+      <h1 class="title is-1">{{ post.Title }}</h1>
       <div v-if="post.Image">
         <a :href="baseUrl + post.Slug+'/'">
           <img class="img-fluid" :src="imgBaseUrl + post.Image" :alt="post.Title">
         </a>
       </div>
-      <div>
+      <div class="content">
         <p><small><a :href="baseUrl + keyword + '/' + post.CategoryID.Slug + '/'">
           {{ post.CategoryID.Title }}
         </a>
          | {{ post.Date | formatDate }}</small></p>
-      </div>
-      <p v-if="post.Content">
-        {{ post.Content }}
-      </p>
-      <div>
+        <p v-if="post.Content">
+          {{ post.Content }}
+        </p>
         <ad-component></ad-component>
         <social-sharing :url="baseUrl + post.Slug + '/'" :title="post.Title">
         </social-sharing>
-      </div>
-      <Col :span="20">
-        <a :href="post.URL">
-          <Button type="error">
-            Read more...
-          </Button>
+        <a class="button is-danger" :href="post.URL">
+          Read more...
         </a>
-      </Col>
-    </Col>
-    <Col :span="3"></Col>
-  </Row>
+      </div>
+    </div>
+  </div>
 </div>
 </template>
 

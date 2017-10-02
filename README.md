@@ -10,6 +10,10 @@ BulmaPGV is a 3-part website boilerplate:
 
 * ...
 
+## Status
+
+Needs mobile improvements, like function for burger, overall styling.
+
 ## UI(s)
 
 This version uses Bulma for UI.

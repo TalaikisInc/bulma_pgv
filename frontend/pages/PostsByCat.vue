@@ -1,38 +1,38 @@
 <template>
-  <div>
-    <ad-component></ad-component>
-    <Row>
-      <Col :span="20">
-        <h1>{{ catTitle }}<span v-if="page > 0">, page {{ page }}</span></h1>
-      </Col>
-    </Row>
-    <Row v-for="(chunk, index) in chunkPosts" :key="'p-' + index" style="background:#eee;padding:20px" class="posts-row">
-      <Col :span="2"></Col>
-      <Col :span="8" v-for="(post, i) in chunk" :key="index + i" class="posts-col">
-        <Card :bordered="false">
-          <div v-if="post.image">
-            <a :href="baseUrl + post.slug + '/'"><img :src="imgBaseUrl + post.image" :alt="post.title" class="img-fluid"></a>
+<div class="container">
+  <div class="columns">
+    <div class="column is-two-third">
+      <ad-component></ad-component>
+      <h1 class="title is-1">{{ catTitle }}<span v-if="page > 0">, page {{ page }}</span></h1>
+      <div class="columns" v-for="(chunk, index) in chunkPosts" :key="'p-' + index">
+        <div class="column is-half" v-for="(post, i) in chunk" :key="index + i">
+          <div class="card">
+            <div class="card-image" v-if="post.image">
+              <figure class="image is-4by3">
+                <a :href="baseUrl + post.slug + '/'"><img :src="imgBaseUrl + post.image" :alt="post.title"></a>
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-5">
+                <a :href="baseUrl + keyword + '/' + post.category_id.Slug + '/'">{{ post.category_id.Title }}</a>
+                  | {{ post.date | formatDate }}
+              </p>
+              <h1 class="title is-3"><a :href="baseUrl + post.slug + '/'">{{ post.title }}</a></h1>
+              <div class="content">
+                <p v-if="post.content">{{ post.content | truncate }}</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p><small>
-            <a :href="baseUrl + keyword + '/' + post.category_id.Slug + '/'">{{ post.category_id.Title }}</a>
-              | {{ post.date | formatDate }}
-            </small></p>
-          </div>
-          <div>
-            <h2><a :href="baseUrl + post.slug + '/'">{{ post.title }}</a></h2>
-            <p v-if="post.content">{{ post.content | truncate }}</p>
-          </div>
-        </Card>
-      </Col>
-      <Col :span="2"></Col>
-      <Col :span="20" v-if="index === (3 || 7)">
-        <ad-component></ad-component>
-      </Col>
-    </Row>
-    <paginator-component v-once :totalPages="calcPages" :paginatorType="paginatorType" :value="catSlug" :currentPage="page" :itemsPerPage="itemsPerPage" :totalItems="posts[0].total_posts">
-    </paginator-component>
+        </div>
+        <div class="column is-half" v-if="index === (3 || 7)">
+          <ad-component></ad-component>
+        </div>
+      </div>
+      <paginator-component v-once :totalPages="calcPages" :paginatorType="paginatorType" :value="catSlug" :currentPage="page" :itemsPerPage="itemsPerPage" :totalItems="posts[0].total_posts">
+      </paginator-component>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
